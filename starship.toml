@@ -1,0 +1,135 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+palette = "theme"
+
+# Increased timeouts allowing large slow git/filesystem to not get cut off
+command_timeout = 2000
+scan_timeout = 100
+
+format = """
+[░▒▓](silver)\
+[  ](bg:silver fg:ink)\
+[](bg:blue fg:silver)\
+$directory\
+[](fg:blue bg:navy)\
+$git_branch\
+$git_status\
+[](fg:navy bg:steel)\
+$python\
+$nodejs\
+$rust\
+$golang\
+$php\
+$ruby\
+$java\
+$kotlin\
+$swift\
+$c\
+$lua\
+$dart\
+$docker_context\
+[](fg:steel bg:coal)\
+$time\
+[ ](fg:coal)$character\
+"""
+
+[palettes.theme]
+blue   = "#769ff0"
+silver = "#a3aed2"
+ink    = "#090c0c"
+fog    = "#e3e5e5"
+slate  = "#a0a9cb"
+gray   = "#6b7089"
+navy   = "#394260"
+steel  = "#212736"
+coal   = "#1d2230"
+
+[directory]
+style = "fg:fog bg:blue"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ""
+style = "fg:blue bg:navy"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "fg:blue bg:navy"
+format = '[($all_status$ahead_behind )]($style)'
+
+[nodejs]
+symbol = ""
+style = "fg:blue bg:steel"
+format = '[ $symbol Node ]($style)'
+
+[rust]
+symbol = ""
+style = "fg:blue bg:steel"
+format = '[ $symbol Rust ]($style)'
+
+[golang]
+symbol = ""
+style = "fg:blue bg:steel"
+format = '[ $symbol Go ]($style)'
+
+[php]
+symbol = ""
+style = "fg:blue bg:steel"
+format = '[ $symbol PHP ]($style)'
+
+[python]
+symbol = ""
+style = "fg:blue bg:steel"
+format = '[ $symbol Python (\($virtualenv\) )]($style)'
+
+[ruby]
+symbol = ""
+style = "fg:blue bg:steel"
+format = '[ $symbol Ruby ]($style)'
+
+[java]
+symbol = ""
+style = "fg:blue bg:steel"
+format = '[ $symbol Java ]($style)'
+
+[kotlin]
+symbol = ""
+style = "fg:blue bg:steel"
+format = '[ $symbol Kotlin ]($style)'
+
+[swift]
+symbol = ""
+style = "fg:blue bg:steel"
+format = '[ $symbol Swift ]($style)'
+
+[c]
+symbol = ""
+style = "fg:blue bg:steel"
+format = '[ $symbol C ]($style)'
+
+[lua]
+symbol = ""
+style = "fg:blue bg:steel"
+format = '[ $symbol Lua ]($style)'
+
+[dart]
+symbol = ""
+style = "fg:blue bg:steel"
+format = '[ $symbol Dart ]($style)'
+
+[docker_context]
+symbol = ""
+style = "fg:blue bg:steel"
+format = '[ $symbol $context ]($style)'
+
+[time]
+disabled = false
+time_format = "%-I:%M %p"
+style = "fg:slate bg:coal"
+format = '[  $time ]($style)'
+
+[character]
+success_symbol = "[❯](bold gray)"
+error_symbol = "[❯](bold gray)"
+vimcmd_symbol = "[❮](bold gray)"
