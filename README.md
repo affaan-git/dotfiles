@@ -23,6 +23,7 @@ My macOS terminal setup using Ghostty, Starship, Fastfetch, and some CLI tools.
 | `statusline-command.sh` | `~/.claude/statusline-command.sh` | Tokyo Night Claude Code status line (macOS/Linux) |
 | `statusline-command.ps1` | `%USERPROFILE%\.claude\statusline-command.ps1` | Tokyo Night Claude Code status line (Windows) |
 | `gitconfig` | `~/.config/git/delta.gitconfig` (include from `~/.gitconfig`) | delta git diff pager |
+| `nanorc` | `~/.nanorc` | GNU nano config |
 
 > [!WARNING]
 > Overwriting your `~/.zshrc` loses your current PATH, aliases, and shell config.  
@@ -52,6 +53,7 @@ Tools this setup uses.
 | [fnm](https://github.com/Schniz/fnm) | Node version manager |
 | [Git](https://git-scm.com) | Version control - usually pre-installed on macOS |
 | [delta](https://github.com/dandavison/delta) | Syntax-highlighting git diff pager |
+| [nano](https://nano-editor.org) | Editor (real GNU nano) |
 
 ## Fonts
 
@@ -136,6 +138,14 @@ Always-on: `setopt NO_NOMATCH`, bash-style word motions, PATH (`~/.local/bin`), 
 All git diff output (including `gd`) renders through [delta](https://github.com/dandavison/delta), which `make link` enables via an include in your git config (see [Installation](#installation)).
 The delta config enables mouse-wheel scrolling of the diff and `navigate = true` so `n` / `N` jump between changes, files, and commits.
 Drag-to-select needs Shift+mouse-drag.
+
+### `nanorc`
+
+Config for GNU nano: syntax highlighting, soft-wrap, line numbers, position memory, and backup-on-save into `~/.cache/nano/backups`.
+`tabstospaces` is off on purpose so tab-sensitive files (Makefiles) stay intact.
+
+macOS adds `/usr/bin/nano` as a symlink to Pico - no highlighting, no UTF-8 - so this only takes effect with real GNU nano.
+Use `make nano` for a self-contained binary build (see [`scripts/build-nano.sh`](scripts/build-nano.sh)).
 
 ### `statusline-command`
 

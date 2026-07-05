@@ -11,6 +11,7 @@ mode="${1:-install}"
 STEPS=(
   "rust tools:install-cargo-tools.sh"
   "prebuilt binaries:install-binaries.sh"
+  "nano:build-nano.sh"
 )
 
 ok_list=(); fail_list=()
