@@ -22,6 +22,7 @@ My macOS terminal setup using Ghostty, Starship, Fastfetch, and some CLI tools.
 | `config.jsonc` | `~/.config/fastfetch/config.jsonc` | Fastfetch system-info layout |
 | `statusline-command.sh` | `~/.claude/statusline-command.sh` | Tokyo Night Claude Code status line (macOS/Linux) |
 | `statusline-command.ps1` | `%USERPROFILE%\.claude\statusline-command.ps1` | Tokyo Night Claude Code status line (Windows) |
+| `gitconfig` | `~/.config/git/delta.gitconfig` (include from `~/.gitconfig`) | delta git diff pager |
 
 > [!WARNING]
 > Overwriting your `~/.zshrc` loses your current PATH, aliases, and shell config.  
@@ -50,6 +51,7 @@ Tools this setup uses.
 | [zoxide](https://github.com/ajeetdsouza/zoxide) | Smarter `cd` |
 | [fnm](https://github.com/Schniz/fnm) | Node version manager |
 | [Git](https://git-scm.com) | Version control - usually pre-installed on macOS |
+| [delta](https://github.com/dandavison/delta) | Syntax-highlighting git diff pager |
 
 ## Fonts
 
@@ -130,6 +132,10 @@ Always-on: `setopt NO_NOMATCH`, bash-style word motions, PATH (`~/.local/bin`), 
 - `NO_NOMATCH` keeps unmatched glob characters as literal text (e.g. `pip install requests[socks]`, URLs with `?`) instead of zsh erroring with "no matches found".
   A glob that matches nothing is passed through literally rather than stopping the command, so zsh won't catch a typo'd `rm *.foo` for you
 - `select-word-style bash` makes word motions (`Ctrl-W`, `Alt-Backspace`, `Alt-B`/`F`) stop at `/` and punctuation, so they act on one path segment at a time instead of the whole `a/b/c/d`
+
+All git diff output (including `gd`) renders through [delta](https://github.com/dandavison/delta), which `make link` enables via an include in your git config (see [Installation](#installation)).
+The delta config enables mouse-wheel scrolling of the diff and `navigate = true` so `n` / `N` jump between changes, files, and commits.
+Drag-to-select needs Shift+mouse-drag.
 
 ### `statusline-command`
 
