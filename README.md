@@ -110,6 +110,12 @@ Tools this setup uses.
 
 7. Add the [status line](#statusline-command) config key to your settings.
 
+## Colors
+
+This setup uses two color palettes: an accent (blue/silver) for the Starship prompt, Fastfetch, and the status line, and a One Dark theme for the terminal (Ghostty) and fzf.
+The tools can't cleanly share variables, so each palette's values are repeated across their configs.
+[`PALETTE.md`](PALETTE.md) lists every color once and maps where each copy lives, so re-theming is easier.
+
 ## Config notes
 
 ### `starship.toml`
