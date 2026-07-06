@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Install/refresh prebuilt macOS arm64 binaries (fzf, fastfetch) from their
-# latest GitHub releases, each verified against the release's published sha256.
-# Detection is sequential; downloads run in parallel.
+# Install/refresh prebuilt macOS arm64 binaries (fzf, carapace, fastfetch) from
+# their latest GitHub releases, each verified against the release's published
+# sha256. Detection is sequential; downloads run in parallel.
 set -euo pipefail
 source "$(dirname "$0")/lib.sh"
 
@@ -10,6 +10,7 @@ preflight curl shasum tar jq
 # name | owner/repo | asset-name regex (the macOS arm64 tarball)
 TOOLS=(
   "fzf|junegunn/fzf|darwin_arm64\\.tar\\.gz$"
+  "carapace|carapace-sh/carapace-bin|darwin_arm64\\.tar\\.gz$"
   "fastfetch|fastfetch-cli/fastfetch|macos-aarch64\\.tar\\.gz$"
 )
 

@@ -89,8 +89,28 @@ if [[ -n "$RICH_TERM" || "$TERM_PROGRAM" == "ghostty" ]]; then
     alias lx="ls -lGA@"
   fi
 
-  ## fzf - fuzzy finder
+  ## completions (order matters: fpath -> compinit -> fzf -> carapace -> fzf-tab)
+  # extra completion definitions must join fpath before compinit
+  [ -d "$HOME/.local/share/zsh/zsh-completions/src" ] && fpath=("$HOME/.local/share/zsh/zsh-completions/src" $fpath)
+  autoload -Uz compinit && compinit
+  zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'   # case-insensitive matching
+
+  ## fzf - fuzzy finder + shell completions (themed)
+  export FZF_DEFAULT_OPTS="--color=bg:-1,bg+:#404859,gutter:#282c3c,fg:#abb2bf,fg+:#ffffff,hl:#61afef,hl+:#61afef,info:#5c6370,border:#404859,prompt:#61afef,pointer:#61afef,marker:#98c379,spinner:#c678dd,header:#56b6c2"
   command -v fzf >/dev/null 2>&1 && eval "$(fzf --zsh)"
+
+  ## carapace - completion engine (after compinit)
+  command -v carapace >/dev/null 2>&1 && source <(carapace _carapace zsh)
+
+  ## fzf-tab - fzf-powered completion menu (must be last)
+  if [ -f "$HOME/.local/share/zsh/fzf-tab/fzf-tab.plugin.zsh" ]; then
+    source "$HOME/.local/share/zsh/fzf-tab/fzf-tab.plugin.zsh"
+    zstyle ':completion:*' menu no   # give the menu to fzf-tab instead of zsh
+    zstyle ':fzf-tab:*' use-fzf-default-opts yes   # inherit the themed FZF_DEFAULT_OPTS
+    zstyle ':fzf-tab:*' switch-group '<' '>'
+    zstyle ':fzf-tab:*' continuous-trigger 'right'
+    zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --icons=auto --color=always $realpath'
+  fi
 
   ## zoxide - smart cd
   export _ZO_DOCTOR=0

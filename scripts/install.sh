@@ -12,6 +12,8 @@ STEPS=(
   "rust tools:install-cargo-tools.sh"
   "prebuilt binaries:install-binaries.sh"
   "nano:build-nano.sh"
+  "zsh-completions:install-zsh-completions.sh"
+  "fzf-tab:install-fzf-tab.sh"
 )
 
 ok_list=(); fail_list=()

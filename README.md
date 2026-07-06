@@ -54,6 +54,9 @@ Tools this setup uses.
 | [Git](https://git-scm.com) | Version control - usually pre-installed on macOS |
 | [delta](https://github.com/dandavison/delta) | Syntax-highlighting git diff pager |
 | [nano](https://nano-editor.org) | Editor (real GNU nano) |
+| [carapace](https://github.com/carapace-sh/carapace-bin) | Completion engine |
+| [zsh-completions](https://github.com/zsh-users/zsh-completions) | Extra completion definitions |
+| [fzf-tab](https://github.com/Aloxaf/fzf-tab) | fzf-powered tab-completion menu (`make fzf-tab`) |
 
 ## Fonts
 
@@ -146,6 +149,13 @@ Config for GNU nano: syntax highlighting, soft-wrap, line numbers, position memo
 
 macOS adds `/usr/bin/nano` as a symlink to Pico - no highlighting, no UTF-8 - so this only takes effect with real GNU nano.
 Use `make nano` for a self-contained binary build (see [`scripts/build-nano.sh`](scripts/build-nano.sh)).
+
+### completions
+
+`zshrc` loads enhanced tab completion in a fixed order (each piece is skipped if not installed): extra definitions from [zsh-completions](https://github.com/zsh-users/zsh-completions) join `fpath`, then `compinit`, then [fzf](https://github.com/junegunn/fzf), then [carapace](https://github.com/carapace-sh/carapace-bin), and finally [fzf-tab](https://github.com/Aloxaf/fzf-tab).
+This replaces zsh's menu with an fzf picker and `eza` directory preview on `cd`.
+
+Matching is case-insensitive, right-arrow accepts a directory and keeps completing, and `<` / `>` switch between match groups.
 
 ### `statusline-command`
 
