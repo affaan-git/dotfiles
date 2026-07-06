@@ -36,7 +36,8 @@ Tools this setup uses.
 
 > [!IMPORTANT]
 > If the `fzf` installer offers to edit your shell config, say `no`.
-> Your `~/.zshrc` aliases `nvm` to `fnm`, so set the default Node version with `nvm default <version>`, not the old `nvm alias default`.
+> Your `~/.zshrc` aliases `nvm` to `fnm`, so set the default Node version with `nvm default <version>`, not the old `nvm alias default`.  
+> Turn `btop`'s theme background off (`theme_background = False`).
 
 | Tool | Purpose |
 | ---- | ------- |
@@ -47,6 +48,10 @@ Tools this setup uses.
 | [fd](https://github.com/sharkdp/fd) | `find` replacement |
 | [ripgrep](https://github.com/BurntSushi/ripgrep) | `grep` replacement |
 | [eza](https://github.com/eza-community/eza) | `ls` replacement |
+| [tealdeer](https://github.com/tealdeer-rs/tealdeer) | Example-first `man` pages (`tldr`) |
+| [htop](https://github.com/htop-dev/htop) | `top` replacement |
+| [bottom](https://github.com/ClementTsang/bottom) | Graphed system monitor (`btm`) |
+| [btop](https://github.com/aristocratos/btop) | Full-screen resource monitor |
 | [jq](https://github.com/jqlang/jq) | JSON processor - usually pre-installed on macOS |
 | [fzf](https://github.com/junegunn/fzf) | Fuzzy finder |
 | [zoxide](https://github.com/ajeetdsouza/zoxide) | Smarter `cd` |

@@ -12,6 +12,8 @@ STEPS=(
   "rust tools:install-cargo-tools.sh"
   "prebuilt binaries:install-binaries.sh"
   "nano:build-nano.sh"
+  "htop:build-htop.sh"
+  "btop:build-btop.sh"
   "zsh-completions:install-zsh-completions.sh"
   "fzf-tab:install-fzf-tab.sh"
 )

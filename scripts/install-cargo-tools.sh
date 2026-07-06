@@ -12,7 +12,7 @@ need cargo "install Rust: https://rustup.rs  (then: cargo install cargo-binstall
 command -v cargo-binstall >/dev/null 2>&1 \
   || die "cargo-binstall not found - run: cargo install cargo-binstall"
 
-CRATES=(bat fd-find ripgrep eza zoxide git-delta starship fnm)
+CRATES=(bat fd-find ripgrep eza zoxide git-delta starship bottom tealdeer fnm)
 
 say "installing/updating rust tools via cargo binstall"
 cargo binstall --no-confirm "${CRATES[@]}"

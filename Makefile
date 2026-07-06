@@ -2,7 +2,7 @@
 # zshrc is not modified here; it is a manual merge (see 'make zsh').
 
 .DEFAULT_GOAL := help
-.PHONY: help link unlink tools update nano fzf-tab zsh
+.PHONY: help link unlink tools update nano htop btop fzf-tab zsh
 
 help: ## show the available targets
 	@echo "Affaan's dotfiles:"
@@ -53,6 +53,12 @@ update: ## update every installed tool to its latest release (skips up-to-date o
 
 nano: ## build GNU nano with UTF-8 + highlighting from source
 	@bash scripts/build-nano.sh
+
+htop: ## build htop from its latest release
+	@bash scripts/build-htop.sh
+
+btop: ## build btop from its latest release
+	@bash scripts/build-btop.sh
 
 fzf-tab: ## install the fzf-tab zsh plugin (carapace + zsh-completions come from 'make tools')
 	@bash scripts/install-fzf-tab.sh
