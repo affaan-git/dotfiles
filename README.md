@@ -85,6 +85,8 @@ Tools this setup uses.
    cd dotfiles
    ```
 
+   > Pick somewhere permanent as step 5 symlinks into this folder.
+
 3. Install the prerequisites (for `make tools`):
 
    - **Xcode Command Line Tools** - `xcode-select --install`
@@ -102,6 +104,7 @@ Tools this setup uses.
 
    > Tools are built from source or fetched from each project's latest release and checksum-verified.
    > Run `make update` any time to refresh them all to their latest versions.
+   > `make` on its own lists every target.
 
 5. Link the configs into place (existing files are backed up first):
 
@@ -109,7 +112,8 @@ Tools this setup uses.
    make link
    ```
 
-   > `make` on its own lists every target.
+   > **Keep the folder in place!** These are symlinks. Deleting or moving it breaks the links.  
+   > `make unlink` removes them. To relocate, move the folder then re-run `make link`.
 
 6. Merge the `zshrc` blocks you want into your own - it is not linked automatically (`make zsh` prints the steps).
 
