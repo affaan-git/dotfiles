@@ -1,39 +1,21 @@
 #!/usr/bin/env bash
-# Run tool installation/updates.
-# Usage: install.sh [install|update]   (default: install)
+# Run tool installation/updates. Every step self-detects and re-fetches only what
+# is missing or outdated, so 'install' and 'update' behave the same.
 set -uo pipefail   # deliberately not -e: per-step failures are handled below
 here="$(cd "$(dirname "$0")" && pwd)"
 source "$here/lib.sh"
 
-mode="${1:-install}"
-
 # label : script
 STEPS=(
-  "rust tools:install-cargo-tools.sh"
   "prebuilt binaries:install-binaries.sh"
-  "nano:build-nano.sh"
-  "htop:build-htop.sh"
-  "btop:build-btop.sh"
-  "zsh-completions:install-zsh-completions.sh"
-  "fzf-tab:install-fzf-tab.sh"
+  "builds:build.sh"
+  "plugins:plugins.sh"
 )
 
 ok_list=(); fail_list=()
 for step in "${STEPS[@]}"; do
   label="${step%%:*}"; script="${step#*:}"
   echo; echo "== $label =="
-
-  # in update mode the rust tools refresh via cargo-update
-  if [ "$mode" = update ] && [ "$script" = install-cargo-tools.sh ]; then
-    if command -v cargo-install-update >/dev/null 2>&1; then
-      if cargo install-update -a; then ok_list+=("$label"); else fail_list+=("$label"); fi
-    else
-      echo "note: run 'cargo install cargo-update' to auto-update the rust tools"
-      ok_list+=("$label (skipped)")
-    fi
-    continue
-  fi
-
   if bash "$here/$script"; then ok_list+=("$label"); else fail_list+=("$label"); fi
 done
 

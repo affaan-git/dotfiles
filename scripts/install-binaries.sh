@@ -1,22 +1,15 @@
 #!/usr/bin/env bash
-# Install/refresh prebuilt macOS arm64 binaries (fzf, carapace, fastfetch) from
-# their latest GitHub releases, each verified against the release's published
+# Install/refresh the prebuilt CLI tools (the BINARIES manifest in lib.sh), each
+# from its latest GitHub release and verified against the release's published
 # sha256. Detection is sequential; downloads run in parallel.
 set -euo pipefail
 source "$(dirname "$0")/lib.sh"
 
-preflight curl shasum tar jq
-
-# name | owner/repo | asset-name regex (the macOS arm64 tarball)
-TOOLS=(
-  "fzf|junegunn/fzf|darwin_arm64\\.tar\\.gz$"
-  "carapace|carapace-sh/carapace-bin|darwin_arm64\\.tar\\.gz$"
-  "fastfetch|fastfetch-cli/fastfetch|macos-aarch64\\.tar\\.gz$"
-)
+preflight curl shasum tar unzip jq
 
 # equential + detection
 NEEDS=()
-for row in "${TOOLS[@]}"; do
+for row in "${BINARIES[@]}"; do
   IFS='|' read -r name repo re <<<"$row"
   json=$(gh_latest "$repo")
   tag=$(tag_from "$json"); [ -n "$tag" ] || die "no release for $repo"
@@ -37,10 +30,14 @@ stage_one() {  # produces $stage/<name>.bin on success
   local name=$1 url=$2 sha=$3
   local d="$stage/$name.d"
   mkdir -p "$d"
-  fetch "$url" "$d/a.tgz" "$sha"
-  tar xzf "$d/a.tgz" -C "$d"
-  local bin; bin=$(find "$d" -type f -name "$name" -perm +111 | head -1)
-  [ -n "$bin" ] || { echo "error: '$name' binary not found in archive" >&2; return 1; }
+  fetch "$url" "$d/a.arc" "$sha"
+  local bin
+  case "$url" in
+    *.zip)          unzip -qo "$d/a.arc" -d "$d"; bin=$(find "$d" -type f -name "$name" -perm +111 | head -1) ;;
+    *.tar.gz|*.tgz) tar xzf "$d/a.arc" -C "$d";   bin=$(find "$d" -type f -name "$name" -perm +111 | head -1) ;;
+    *)              bin="$d/a.arc" ;;   # bare binary (e.g. tealdeer)
+  esac
+  [ -n "$bin" ] && [ -f "$bin" ] || { echo "error: '$name' binary not found" >&2; return 1; }
   cp "$bin" "$stage/$name.bin"
 }
 say "downloading ${#NEEDS[@]} binary(s) in parallel"

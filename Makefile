@@ -2,11 +2,11 @@
 # zshrc is not modified here; it is a manual merge (see 'make zsh').
 
 .DEFAULT_GOAL := help
-.PHONY: help link unlink tools update nano htop btop fzf-tab zsh
+.PHONY: help link unlink tools update eza nano htop btop fzf-tab zsh uninstall
 
 help: ## show the available targets
 	@echo "Affaan's dotfiles:"
-	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | awk -F':.*## ' '{ printf "  make %-7s %s\n", $$1, $$2 }'
+	@grep -E '^[a-z][a-z -]*:.*## ' $(MAKEFILE_LIST) | awk -F':.*## ' '{ printf "  make %-9s %s\n", $$1, $$2 }'
 
 # repo file : install path (link and unlink)
 CONFIGS = \
@@ -51,14 +51,11 @@ tools: ## install every CLI tool from source + releases (needs Xcode CLT and Rus
 update: ## update every installed tool to its latest release (skips up-to-date ones)
 	@bash scripts/install.sh update
 
-nano: ## build GNU nano with UTF-8 + highlighting from source
-	@bash scripts/build-nano.sh
-
-htop: ## build htop from its latest release
-	@bash scripts/build-htop.sh
-
-btop: ## build btop from its latest release
-	@bash scripts/build-btop.sh
+nano htop btop eza: ## build tools from source
+	@bash scripts/build.sh $@
 
 fzf-tab: ## install the fzf-tab zsh plugin (carapace + zsh-completions come from 'make tools')
-	@bash scripts/install-fzf-tab.sh
+	@bash scripts/plugins.sh $@
+
+uninstall: unlink ## remove installed tools and unlink the configs
+	@bash scripts/uninstall.sh

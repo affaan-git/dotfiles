@@ -106,3 +106,39 @@ clone_latest() {
   printf '%s' "$tag" > "$2/.tag"   # marker so a later run can skip if unchanged
   ok "$1 $tag -> $2"
 }
+
+# === tool manifests for engines and uninstall ===
+
+# prebuilt binaries -> install-binaries.sh
+# name | owner/repo | asset regex (tarball, zip, or bare binary)
+BINARIES=(
+  "bat|sharkdp/bat|aarch64-apple-darwin\\.tar\\.gz$"
+  "fd|sharkdp/fd|aarch64-apple-darwin\\.tar\\.gz$"
+  "rg|BurntSushi/ripgrep|aarch64-apple-darwin\\.tar\\.gz$"
+  "zoxide|ajeetdsouza/zoxide|aarch64-apple-darwin\\.tar\\.gz$"
+  "delta|dandavison/delta|aarch64-apple-darwin\\.tar\\.gz$"
+  "starship|starship/starship|aarch64-apple-darwin\\.tar\\.gz$"
+  "btm|ClementTsang/bottom|aarch64-apple-darwin\\.tar\\.gz$"
+  "tldr|tealdeer-rs/tealdeer|tealdeer-macos-aarch64$"
+  "fzf|junegunn/fzf|darwin_arm64\\.tar\\.gz$"
+  "carapace|carapace-sh/carapace-bin|darwin_arm64\\.tar\\.gz$"
+  "fastfetch|fastfetch-cli/fastfetch|macos-aarch64\\.tar\\.gz$"
+  "fnm|Schniz/fnm|fnm-macos\\.zip$"
+)
+
+# source builds -> build.sh
+# name | owner/repo | source (asset regex to fetch+verify, or "clone") | build cmd | binary path
+BUILDS=(
+  'htop|htop-dev/htop|htop-.*\.tar\.xz$|./configure --prefix="$PREFIX" && make -j"$JOBS"|htop'
+  'btop|aristocratos/btop|clone|make -j"$JOBS"|bin/btop'
+)
+
+# crates built with cargo -> build.sh
+CARGO=(eza)
+
+# git-clone zsh plugins -> plugins.sh
+# name | owner/repo | dest
+CLONES=(
+  "zsh-completions|zsh-users/zsh-completions|$HOME/.local/share/zsh/zsh-completions"
+  "fzf-tab|Aloxaf/fzf-tab|$HOME/.local/share/zsh/fzf-tab"
+)

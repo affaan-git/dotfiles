@@ -88,7 +88,7 @@ Tools this setup uses.
 3. Install the prerequisites (for `make tools`):
 
    - **Xcode Command Line Tools** - `xcode-select --install`
-   - **Rust cargo-binstall** - [rustup.rs](https://rustup.rs), then `cargo install cargo-binstall cargo-update`
+   - **Rust** - [rustup.rs](https://rustup.rs) (eza)
    - **Ghostty** - [ghostty.org](https://ghostty.org)
 
    `git` and `jq` are included with recent macOS and the Command Line Tools.
