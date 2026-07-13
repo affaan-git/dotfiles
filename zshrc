@@ -1,5 +1,6 @@
 # Shell Options
 setopt NO_NOMATCH
+setopt HIST_IGNORE_SPACE
 
 # Bash-style word motions
 autoload -Uz select-word-style && select-word-style bash

@@ -25,7 +25,6 @@ link: ## symlink configs into place (backs up anything already there, skips zshr
 		if [ -e "$$dst" ] && [ ! -L "$$dst" ]; then mv "$$dst" "$$dst.backup"; echo "  backed up $$dst -> $$dst.backup"; fi; \
 		ln -sfn "$(CURDIR)/$$src" "$$dst"; echo "  linked $$dst"; \
 	done; \
-	mkdir -p "$(HOME)/.cache/nano/backups"; \
 	if command -v delta >/dev/null 2>&1; then \
 		if git config --global --get-all include.path 2>/dev/null | grep -qxF "~/.config/git/delta.gitconfig"; then echo "  git include already set"; \
 		else git config --global --add include.path "~/.config/git/delta.gitconfig"; echo "  added delta include to ~/.gitconfig"; fi; \

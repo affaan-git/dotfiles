@@ -159,7 +159,7 @@ Drag-to-select needs Shift+mouse-drag.
 
 ### `nanorc`
 
-Config for GNU nano: syntax highlighting, soft-wrap, line numbers, position memory, and backup-on-save into `~/.cache/nano/backups`.
+Config for GNU nano: syntax highlighting, soft-wrap, and line numbers.
 `tabstospaces` is off on purpose so tab-sensitive files (Makefiles) stay intact.
 
 macOS adds `/usr/bin/nano` as a symlink to Pico - no highlighting, no UTF-8 - so this only takes effect with real GNU nano.

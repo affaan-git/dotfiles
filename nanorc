@@ -10,11 +10,6 @@ set mouse
 set softwrap
 # no 'set tabstospaces' on purpose - it would break tab-required files like Makefiles
 
-# reopen files at the last cursor position; keep a backup on save (out of the way)
-set positionlog
-set backup
-set backupdir "~/.cache/nano/backups"
-
 # dark interface using palette
 set titlecolor    bold,white,black
 set statuscolor   bold,white,black
