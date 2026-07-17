@@ -30,7 +30,7 @@ for e in "${CLONES[@]}"; do
   [ -e "$dest" ] && { rm -rf "$dest"; echo "  removed $dest"; }
 done
 
-# nano's installed data (its ~/.cache/nano backups are your edits - left alone)
+# nano's installed syntax definitions (from 'make nano')
 [ -e "$PREFIX/share/nano" ] && { rm -rf "$PREFIX/share/nano"; echo "  removed $PREFIX/share/nano"; }
 
 ok "tools removed (Rust toolchain left intact)"

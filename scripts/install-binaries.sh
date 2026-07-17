@@ -7,7 +7,7 @@ source "$(dirname "$0")/lib.sh"
 
 preflight curl shasum tar unzip jq
 
-# equential + detection
+# sequential + detection
 NEEDS=()
 for row in "${BINARIES[@]}"; do
   IFS='|' read -r name repo re <<<"$row"

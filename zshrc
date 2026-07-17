@@ -15,6 +15,8 @@ alias nvm=fnm   # muscle-memory redirect (set default node version with 'nvm def
 # Aliases
 alias cls=clear
 alias edit=nano
+alias awake="caffeinate -dimsu" # screen on
+alias nosleep="caffeinate -ims" # screen may sleep
 
 ## Python - use python3/pip3 in PATH (version-agnostic)
 alias python=python3
@@ -67,6 +69,9 @@ alias glp="git log -p"
 # CLI replacements and tools (ghostty/RICH_TERM=1 only)
 if [[ -n "$RICH_TERM" || "$TERM_PROGRAM" == "ghostty" ]]; then
 
+  ## theme selector - sets the tool configs (starship/fzf/fastfetch/bat) and adds 'theme'
+  [ -r "$HOME/.config/dotfiles/theme.sh" ] && source "$HOME/.config/dotfiles/theme.sh"
+
   ## bat - better cat
   alias cat="bat --paging=never"
   alias catp="bat"
@@ -96,8 +101,7 @@ if [[ -n "$RICH_TERM" || "$TERM_PROGRAM" == "ghostty" ]]; then
   autoload -Uz compinit && compinit
   zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'   # case-insensitive matching
 
-  ## fzf - fuzzy finder + shell completions (themed)
-  export FZF_DEFAULT_OPTS="--color=bg:-1,bg+:#404859,gutter:#282c3c,fg:#abb2bf,fg+:#ffffff,hl:#61afef,hl+:#61afef,info:#5c6370,border:#404859,prompt:#61afef,pointer:#61afef,marker:#98c379,spinner:#c678dd,header:#56b6c2"
+  ## fzf - fuzzy finder + shell completions
   command -v fzf >/dev/null 2>&1 && eval "$(fzf --zsh)"
 
   ## carapace - completion engine (after compinit)
@@ -117,10 +121,14 @@ if [[ -n "$RICH_TERM" || "$TERM_PROGRAM" == "ghostty" ]]; then
   export _ZO_DOCTOR=0
   eval "$(zoxide init zsh --cmd cd)"
 
-  ## fastfetch
+  ## fastfetch (themed config from the selector)
   if [[ $- == *i* ]]; then
     if (( COLUMNS >= 110 && LINES >= 24 )); then
-      fastfetch
+      if [[ -n "$DOTFILES_FASTFETCH_CONFIG" ]]; then
+        fastfetch --config "$DOTFILES_FASTFETCH_CONFIG"
+      else
+        fastfetch
+      fi
     fi
   fi
 

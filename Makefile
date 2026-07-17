@@ -10,12 +10,11 @@ help: ## show the available targets
 
 # repo file : install path (link and unlink)
 CONFIGS = \
-	starship.toml:$(HOME)/.config/starship.toml \
 	config.ghostty:$(HOME)/.config/ghostty/config \
-	config.jsonc:$(HOME)/.config/fastfetch/config.jsonc \
 	statusline-command.sh:$(HOME)/.claude/statusline-command.sh \
 	gitconfig:$(HOME)/.config/git/delta.gitconfig \
-	nanorc:$(HOME)/.nanorc
+	scripts/theme.sh:$(HOME)/.config/dotfiles/theme.sh \
+	themes:$(HOME)/.config/dotfiles/themes
 
 link: ## symlink configs into place (backs up anything already there, skips zshrc)
 	@set -e; \
@@ -25,17 +24,25 @@ link: ## symlink configs into place (backs up anything already there, skips zshr
 		if [ -e "$$dst" ] && [ ! -L "$$dst" ]; then mv "$$dst" "$$dst.backup"; echo "  backed up $$dst -> $$dst.backup"; fi; \
 		ln -sfn "$(CURDIR)/$$src" "$$dst"; echo "  linked $$dst"; \
 	done; \
+	if [ ! -e "$(HOME)/.config/dotfiles/active" ]; then \
+		ln -sfn "$(HOME)/.config/dotfiles/themes/one-night" "$(HOME)/.config/dotfiles/active"; \
+		echo "  seeded theme pointer -> one-night"; \
+	else echo "  theme pointer already set - kept"; fi; \
+	if [ -e "$(HOME)/.nanorc" ] && [ ! -L "$(HOME)/.nanorc" ]; then mv "$(HOME)/.nanorc" "$(HOME)/.nanorc.backup"; echo "  backed up ~/.nanorc"; fi; \
+	ln -sfn "$(HOME)/.config/dotfiles/active/nanorc" "$(HOME)/.nanorc"; echo "  linked ~/.nanorc -> active theme"; \
 	if command -v delta >/dev/null 2>&1; then \
 		if git config --global --get-all include.path 2>/dev/null | grep -qxF "~/.config/git/delta.gitconfig"; then echo "  git include already set"; \
 		else git config --global --add include.path "~/.config/git/delta.gitconfig"; echo "  added delta include to ~/.gitconfig"; fi; \
 	else echo "  delta not found - skipped git include (run 'make tools')"; fi; \
-	echo; echo "Done. zshrc is a manual merge - run 'make zsh' for the steps."
+	echo; echo "Done. zshrc is a manual merge - run 'make zsh' for the steps."; \
+	echo "Themes: 'theme list' shows them, 'theme <name>' switches (see THEMES.md)."
 
 unlink: ## remove the symlinks 'make link' made (only those pointing into this repo)
 	@for pair in $(CONFIGS); do \
 		f="$${pair#*:}"; \
 		if [ -L "$$f" ]; then case "$$(readlink "$$f")" in "$(CURDIR)"/*) rm "$$f"; echo "  unlinked $$f";; esac; fi; \
 	done; \
+	rm -f "$(HOME)/.config/dotfiles/active" "$(HOME)/.nanorc"; echo "  removed theme pointer + ~/.nanorc"; \
 	if git config --global --get-all include.path 2>/dev/null | grep -qxF "~/.config/git/delta.gitconfig"; then git config --global --unset-all include.path 'delta\.gitconfig'; echo "  removed delta include from ~/.gitconfig"; fi; \
 	echo "Any .backup files were left untouched."
 

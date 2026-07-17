@@ -1,5 +1,5 @@
 #!/bin/sh
-# Claude Code status line - Tokyo Night theme matching Starship prompt
+# Claude Code status line - colors from the active theme matching the prompt
 # Special characters embedded as raw UTF-8
 
 input=$(head -c 65536)
@@ -99,15 +99,25 @@ fi
 
 # =============== BUILD OUTPUT ===============
 
-# Precompute the palette escapes once (one subshell each, not one per segment)
-SILVER_FG=$(fg 163 174 210); SILVER_BG=$(bg 163 174 210)
-BLUE_FG=$(fg 118 159 240);   BLUE_BG=$(bg 118 159 240)
-NAVY_FG=$(fg 57 66 96);      NAVY_BG=$(bg 57 66 96)
-STEEL_FG=$(fg 33 39 54);     STEEL_BG=$(bg 33 39 54)
-COAL_FG=$(fg 29 34 48);      COAL_BG=$(bg 29 34 48)
-INK_FG=$(fg 9 12 12)
-FOG_FG=$(fg 227 229 229)
-SLATE_FG=$(fg 160 169 203)
+# Palette from the active theme (RGB triples), resolved from the active pointer
+DOTFILES_CFG="${XDG_CONFIG_HOME:-$HOME/.config}/dotfiles"
+PTR="$DOTFILES_CFG/active"
+DOTFILES_THEME=$(readlink "$PTR" 2>/dev/null); DOTFILES_THEME=${DOTFILES_THEME%/}; DOTFILES_THEME=${DOTFILES_THEME##*/}
+: "${DOTFILES_THEME:=one-night}"
+[ -r "$PTR/statusline.env" ] && . "$PTR/statusline.env"
+: "${SILVER:=163 174 210}"; : "${BLUE:=118 159 240}"; : "${NAVY:=57 66 96}"
+: "${STEEL:=33 39 54}";     : "${COAL:=29 34 48}";    : "${INK:=9 12 12}"
+: "${FOG:=227 229 229}";    : "${SLATE:=160 169 203}"
+
+# Precompute the palette escapes once; $VAR unquoted so "R G B" splits into fg/bg args
+SILVER_FG=$(fg $SILVER); SILVER_BG=$(bg $SILVER)
+BLUE_FG=$(fg $BLUE);     BLUE_BG=$(bg $BLUE)
+NAVY_FG=$(fg $NAVY);     NAVY_BG=$(bg $NAVY)
+STEEL_FG=$(fg $STEEL);   STEEL_BG=$(bg $STEEL)
+COAL_FG=$(fg $COAL);     COAL_BG=$(bg $COAL)
+INK_FG=$(fg $INK)
+FOG_FG=$(fg $FOG)
+SLATE_FG=$(fg $SLATE)
 
 # Segment 3 inner: context + git
 INFO_PARTS=""

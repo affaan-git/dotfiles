@@ -7,3 +7,6 @@
     navigate = true
     line-numbers = true
     pager = less -R --mouse
+# diff colors - from the active theme
+[include]
+    path = ~/.config/dotfiles/active/delta.gitconfig

@@ -1,0 +1,14 @@
+# one-night - delta diff colors (One Dark accent + syntax highlighting)
+[delta]
+    syntax-theme                 = TwoDark
+    minus-style                  = syntax "#3f2529"
+    minus-emph-style             = syntax "#6d2f37"
+    plus-style                   = syntax "#25392c"
+    plus-emph-style              = syntax "#2f5a41"
+    line-numbers-minus-style     = "#e06c75"
+    line-numbers-plus-style      = "#98c379"
+    line-numbers-zero-style      = "#5c6370"
+    hunk-header-style            = "#61afef" bold
+    hunk-header-decoration-style = "#404859" box
+    file-style                   = "#abb2bf" bold
+    file-decoration-style        = "#404859" ul

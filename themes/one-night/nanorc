@@ -1,3 +1,4 @@
+# one-night - nano config
 # syntax highlighting - bundled GNU nano definitions
 include "~/.local/share/nano/*.nanorc"
 
@@ -10,7 +11,7 @@ set mouse
 set softwrap
 # no 'set tabstospaces' on purpose - it would break tab-required files like Makefiles
 
-# dark interface using palette
+# interface colors
 set titlecolor    bold,white,black
 set statuscolor   bold,white,black
 set errorcolor    bold,white,red

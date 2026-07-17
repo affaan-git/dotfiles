@@ -32,16 +32,17 @@ $time\
 [ ](fg:coal)$character\
 """
 
+# pro-black: near-black terminal, graphite/silver accent
 [palettes.theme]
-blue   = "#769ff0"
-silver = "#a3aed2"
-ink    = "#090c0c"
-fog    = "#e3e5e5"
-slate  = "#a0a9cb"
-gray   = "#6b7089"
-navy   = "#394260"
-steel  = "#212736"
-coal   = "#1d2230"
+blue   = "#aeb3bd"
+silver = "#c9cdd6"
+ink    = "#08090b"
+fog    = "#14161a"
+slate  = "#9aa0aa"
+gray   = "#565962"
+navy   = "#24262c"
+steel  = "#191b1f"
+coal   = "#131418"
 
 [directory]
 style = "fg:fog bg:blue"

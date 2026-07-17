@@ -17,13 +17,12 @@ My macOS terminal setup using Ghostty, Starship, Fastfetch, and some CLI tools.
 | File | Installs to | What it is |
 | ---- | ----------- | ---------- |
 | `zshrc` | `~/.zshrc` (merge, don't overwrite) | Shell config |
-| `starship.toml` | `~/.config/starship.toml` | Single-line prompt |
 | `config.ghostty` | `~/.config/ghostty/config` | Ghostty terminal config |
-| `config.jsonc` | `~/.config/fastfetch/config.jsonc` | Fastfetch system-info layout |
-| `statusline-command.sh` | `~/.claude/statusline-command.sh` | Tokyo Night Claude Code status line (macOS/Linux) |
+| `statusline-command.sh` | `~/.claude/statusline-command.sh` | Claude Code status line (macOS/Linux) |
 | `statusline-command.ps1` | `%USERPROFILE%\.claude\statusline-command.ps1` | Tokyo Night Claude Code status line (Windows) |
 | `gitconfig` | `~/.config/git/delta.gitconfig` (include from `~/.gitconfig`) | delta git diff pager |
-| `nanorc` | `~/.nanorc` | GNU nano config |
+| `scripts/theme.sh` | `~/.config/dotfiles/theme.sh` | Theme selector |
+| `themes/<name>/` | various (per tool) | Per-theme colors - see [Themes](#themes) |
 
 > [!WARNING]
 > Overwriting your `~/.zshrc` loses your current PATH, aliases, and shell config.  
@@ -121,9 +120,25 @@ Tools this setup uses.
 
 ## Colors
 
-This setup uses two color palettes: an accent (blue/silver) for the Starship prompt, Fastfetch, and the status line, and a One Dark theme for the terminal (Ghostty) and fzf.
+Each theme has two palettes: an accent (Starship prompt, Fastfetch, status line) and a terminal palette (Ghostty, fzf, nano).
 The tools can't cleanly share variables, so each palette's values are repeated across their configs.
-[`PALETTE.md`](PALETTE.md) lists every color once and maps where each copy lives, so re-theming is easier.
+[`PALETTE.md`](PALETTE.md) maps each color slot to the files that carry it, so re-theming is easier.
+
+## Themes
+
+Themes switch at runtime with a `theme` command:
+
+- `one-night` (default) - One Dark terminal, Clear Dark blue/silver accent.
+- `pro-black` - near-black terminal, graphite/silver accent.
+
+`theme`:
+
+- `<theme-name>` - switches to the named theme
+- `list` - lists themes
+
+> Shell is live. Reload Ghostty with Cmd+Shift+, or its command palette
+
+See [`THEMES.md`](THEMES.md) to add a theme.
 
 ## Config notes
 
@@ -136,7 +151,7 @@ The tools can't cleanly share variables, so each palette's values are repeated a
 
 ### `config.ghostty`
 
-- 120x30 window, background blur, One Dark palette
+- 120x30 window, background blur; colors come from the active theme
 - Opens at `$HOME`, no state restoration between sessions
 - Keeps the window open after a process exits
 

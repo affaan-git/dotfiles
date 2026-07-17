@@ -1,0 +1,29 @@
+# pro-black - near-black terminal colors, neutral chrome
+
+background = #141619
+background-opacity = 0.83
+background-blur = 40
+foreground = #c9cdd6
+cursor-color = #c9cdd6
+selection-background = #383a40
+selection-foreground = #ffffff
+
+# ANSI Normal
+palette = 0=#2b2d34
+palette = 1=#e06c75
+palette = 2=#98c379
+palette = 3=#d19a66
+palette = 4=#61afef
+palette = 5=#c678dd
+palette = 6=#56b6c2
+palette = 7=#c9cdd6
+
+# ANSI Bright
+palette = 8=#565962
+palette = 9=#e06c75
+palette = 10=#98c379
+palette = 11=#d19a66
+palette = 12=#61afef
+palette = 13=#c678dd
+palette = 14=#56b6c2
+palette = 15=#e6e8ec

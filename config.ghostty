@@ -1,4 +1,4 @@
-# Ghostty config - macOS Terminal.app "Clear Dark" window with a One Dark palette
+# Ghostty config - window + behavior. Colors come from the active theme.
 # Place at: ~/.config/ghostty/config
 
 # Window
@@ -11,32 +11,8 @@ working-directory = home
 wait-after-command = true
 bell-features = system, attention, title
 
-# Colors (One Dark)
-background = #282c3c
-foreground = #cccccc
-cursor-color = #cccccc
-selection-background = #404859
-selection-foreground = #ffffff
-
-# ANSI Normal
-palette = 0=#3f4451
-palette = 1=#e06c75
-palette = 2=#98c379
-palette = 3=#d19a66
-palette = 4=#61afef
-palette = 5=#c678dd
-palette = 6=#56b6c2
-palette = 7=#abb2bf
-
-# ANSI Bright
-palette = 8=#5c6370
-palette = 9=#e06c75
-palette = 10=#98c379
-palette = 11=#d19a66
-palette = 12=#61afef
-palette = 13=#c678dd
-palette = 14=#56b6c2
-palette = 15=#e0e0e0
+# Colors + per-theme opacity - the active theme, via the 'active' pointer (-> themes/<name>/)
+config-file = ?../dotfiles/active/ghostty.theme
 
 # Background transparency/blur
 background-opacity = 0.92
