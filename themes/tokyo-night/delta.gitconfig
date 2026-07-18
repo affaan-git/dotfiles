@@ -1,0 +1,16 @@
+# tokyo-night - delta diff colors (Tokyo Night terminal)
+[delta]
+    syntax-theme                 = base16
+    minus-style                  = syntax "#462d3b"
+    minus-emph-style             = syntax "#6e3e4e"
+    plus-style                   = syntax "#343f34"
+    plus-emph-style              = syntax "#4c5f40"
+    line-numbers-minus-style     = "#f7768e"
+    line-numbers-plus-style      = "#9ece6a"
+    line-numbers-zero-style      = "#414868"
+    line-numbers-left-style      = "#414868"
+    line-numbers-right-style     = "#414868"
+    hunk-header-style            = "#7aa2f7" bold
+    hunk-header-decoration-style = "#283457" box
+    file-style                   = "#a9b1d6" bold
+    file-decoration-style        = "#283457" ul

@@ -4,12 +4,15 @@ A theme's colors are split across a few files because the programs can't share
 variables. This maps each slot to the files and keys that carry it, so a retheme
 hits every copy. Actual values live per theme in `themes/<name>/`.
 
-There are **two independent palettes** - retheme one without touching the other.
+There are **two palettes** - an accent and a terminal palette, mostly independent.
+The one crossover: fzf's match highlight/pointer and delta's hunk-header use the
+accent, so the picker and diffs echo the prompt.
 
 ## Palette A - accent
 
 The prompt/logo/status-line accent. Named once in `starship.toml`, repeated
-elsewhere as hex or RGB.
+elsewhere as hex or RGB. It also colors fzf's `hl`/`hl+`/`prompt`/`pointer` and
+delta's `hunk-header`, so the picker and diff headers match the prompt.
 
 | Slot | starship.toml | fastfetch.jsonc | statusline.env |
 | ---- | ------------- | --------------- | -------------- |
@@ -38,7 +41,7 @@ The 16-color terminal theme, set in `ghostty.theme` and mirrored into `fzf.opts`
 | selection | `selection-background` | `bg+`, `border` |
 | white / fg | `palette 7` | `fg` |
 | bright white | `selection-foreground` | `fg+` |
-| blue | `palette 4` | `hl`, `hl+`, `prompt`, `pointer` |
+| blue | `palette 4` | - (`hl`/`prompt`/`pointer` take the accent) |
 | green | `palette 2` | `marker` |
 | magenta | `palette 5` | `spinner` |
 | cyan | `palette 6` | `header` |
@@ -49,8 +52,9 @@ nano's config lives per theme in `nanorc` (interface colors use ANSI *names* lik
 theme's copy). Syntax highlighting comes from the bundled
 `~/.local/share/nano/*.nanorc` files, not this palette.
 
-Delta (git diff) has its own per-theme `delta.gitconfig` (each sets a syntax theme
-and its own muted +/- backgrounds); bat reuses that same syntax theme.
+Delta (git diff) has its own per-theme `delta.gitconfig`: the `hunk-header` uses the
+accent, the muted +/- backgrounds and line numbers come from the terminal palette, and
+it sets a syntax theme that bat reuses.
 
 ## Not themed
 
@@ -61,4 +65,5 @@ Left at each tool's default: eza, nano syntax highlighting, and btop (turn
 
 Edit a theme's files under `themes/<name>/`: `starship.toml` (the `[palettes.theme]`
 block), `fastfetch.jsonc`, `statusline.env` (RGB), `ghostty.theme`, `fzf.opts`
-(match the Ghostty values), `nanorc`, and `delta.gitconfig`.
+(Ghostty values, but `hl`/`prompt`/`pointer` take the accent), `nanorc`, and
+`delta.gitconfig`.

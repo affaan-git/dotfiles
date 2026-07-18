@@ -1,0 +1,16 @@
+# andromeda - delta diff colors (Andromeda terminal)
+[delta]
+    syntax-theme                 = base16
+    minus-style                  = syntax "#472b33"
+    minus-emph-style             = syntax "#652d32"
+    plus-style                   = syntax "#1f4741"
+    plus-emph-style              = syntax "#19614e"
+    line-numbers-minus-style     = "#cd3131"
+    line-numbers-plus-style      = "#05bc79"
+    line-numbers-zero-style      = "#666666"
+    line-numbers-left-style      = "#666666"
+    line-numbers-right-style     = "#666666"
+    hunk-header-style            = "#00e8c6" bold
+    hunk-header-decoration-style = "#5a5c62" box
+    file-style                   = "#e5e5e5" bold
+    file-decoration-style        = "#5a5c62" ul

@@ -1,6 +1,6 @@
-# pro-black - delta diff colors (muted chrome, VS Dark+ syntax highlighting)
+# pro-black - delta diff colors (muted chrome, Coldark-Dark syntax highlighting)
 [delta]
-    syntax-theme                 = Visual Studio Dark+
+    syntax-theme                 = Coldark-Dark
     minus-style                  = syntax "#241a1c"
     minus-emph-style             = syntax "#48282d"
     plus-style                   = syntax "#16241b"
@@ -8,7 +8,9 @@
     line-numbers-minus-style     = "#9a6a6e"
     line-numbers-plus-style      = "#6a9a76"
     line-numbers-zero-style      = "#565962"
-    hunk-header-style            = "#c9cdd6" bold
+    line-numbers-left-style      = "#565962"
+    line-numbers-right-style     = "#565962"
+    hunk-header-style            = "#aeb3bd" bold
     hunk-header-decoration-style = "#2b2d34" box
     file-style                   = "#c9cdd6" bold
     file-decoration-style        = "#2b2d34" ul

@@ -1,0 +1,16 @@
+# catppuccin-mocha - delta diff colors (Catppuccin Mocha terminal)
+[delta]
+    syntax-theme                 = Catppuccin Mocha
+    minus-style                  = syntax "#493446"
+    minus-emph-style             = syntax "#6f475c"
+    plus-style                   = syntax "#394545"
+    plus-emph-style              = syntax "#52695a"
+    line-numbers-minus-style     = "#f38ba8"
+    line-numbers-plus-style      = "#a6e3a1"
+    line-numbers-zero-style      = "#585b70"
+    line-numbers-left-style      = "#585b70"
+    line-numbers-right-style     = "#585b70"
+    hunk-header-style            = "#89b4fa" bold
+    hunk-header-decoration-style = "#585b70" box
+    file-style                   = "#a6adc8" bold
+    file-decoration-style        = "#585b70" ul

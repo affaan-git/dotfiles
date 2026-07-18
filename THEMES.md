@@ -3,6 +3,26 @@
 - **`one-night`** (default) - One Dark terminal with a Clear Dark blue/silver accent.
 - **`pro-black`** - near-black terminal with a graphite/silver accent.
 
+Ports of some editor themes, each with its own syntax highlighting:
+
+- **`dracula`**
+- **`nord`**
+- **`catppuccin-mocha`**
+- **`gruvbox-dark`**
+- **`solarized-dark`**
+- **`monokai-pro`**
+- **`tokyo-night`**
+- **`night-owl`**
+- **`ayu-mirage`**
+- **`cobalt2`**
+- **`andromeda`**
+- **`aura`**
+- **`github-dark`**
+- **`synthwave-84`**
+
+`bat`/`delta` use each theme's native highlighter where one exists (Dracula, Nord, Catppuccin, Gruvbox, Solarized, Monokai).
+The rest fall back to `base16`, which renders syntax in the terminal's own ANSI palette.
+
 ## Switching
 
 ```sh

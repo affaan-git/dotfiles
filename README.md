@@ -118,18 +118,17 @@ Tools this setup uses.
 
 7. Add the [status line](#statusline-command) config key to your settings.
 
-## Colors
-
-Each theme has two palettes: an accent (Starship prompt, Fastfetch, status line) and a terminal palette (Ghostty, fzf, nano).
-The tools can't cleanly share variables, so each palette's values are repeated across their configs.
-[`PALETTE.md`](PALETTE.md) maps each color slot to the files that carry it, so re-theming is easier.
-
 ## Themes
 
 Themes switch at runtime with a `theme` command:
 
 - `one-night` (default) - One Dark terminal, Clear Dark blue/silver accent.
 - `pro-black` - near-black terminal, graphite/silver accent.
+
+Plus ports of some editor themes, each with matching syntax highlighting:
+`dracula`, `nord`, `catppuccin-mocha`, `gruvbox-dark`, `solarized-dark`,
+`monokai-pro`, `tokyo-night`, `night-owl`, `ayu-mirage`, `cobalt2`,
+`andromeda`, `aura`, `github-dark`, `synthwave-84`.
 
 `theme`:
 
@@ -139,6 +138,12 @@ Themes switch at runtime with a `theme` command:
 > Shell is live. Reload Ghostty with Cmd+Shift+, or its command palette
 
 See [`THEMES.md`](THEMES.md) to add a theme.
+
+## Colors
+
+Each theme has two palettes: an accent (Starship prompt, Fastfetch, status line, plus fzf and delta highlights) and a terminal palette (Ghostty, fzf, nano).
+The tools can't cleanly share variables, so each palette's values are repeated across their configs.
+[`PALETTE.md`](PALETTE.md) maps each color slot to the files that carry it, so re-theming is easier.
 
 ## Config notes
 

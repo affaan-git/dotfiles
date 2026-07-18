@@ -1,0 +1,16 @@
+# aura - delta diff colors (Aura terminal)
+[delta]
+    syntax-theme                 = base16
+    minus-style                  = syntax "#44252a"
+    minus-emph-style             = syntax "#6e3438"
+    plus-style                   = syntax "#24433e"
+    plus-emph-style              = syntax "#326d5e"
+    line-numbers-minus-style     = "#ff6767"
+    line-numbers-plus-style      = "#61ffca"
+    line-numbers-zero-style      = "#4d4d4d"
+    line-numbers-left-style      = "#4d4d4d"
+    line-numbers-right-style     = "#4d4d4d"
+    hunk-header-style            = "#a277ff" bold
+    hunk-header-decoration-style = "#3b334b" box
+    file-style                   = "#edecee" bold
+    file-decoration-style        = "#3b334b" ul

@@ -1,0 +1,16 @@
+# ayu-mirage - delta diff colors (Ayu Mirage terminal)
+[delta]
+    syntax-theme                 = base16
+    minus-style                  = syntax "#48373e"
+    minus-emph-style             = syntax "#6d484a"
+    plus-style                   = syntax "#34483c"
+    plus-emph-style              = syntax "#476947"
+    line-numbers-minus-style     = "#ed8274"
+    line-numbers-plus-style      = "#87d96c"
+    line-numbers-zero-style      = "#686868"
+    line-numbers-left-style      = "#686868"
+    line-numbers-right-style     = "#686868"
+    hunk-header-style            = "#ffcc66" bold
+    hunk-header-decoration-style = "#33415e" box
+    file-style                   = "#c7c7c7" bold
+    file-decoration-style        = "#33415e" ul

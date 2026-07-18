@@ -1,0 +1,16 @@
+# cobalt2 - delta diff colors (Cobalt2 terminal)
+[delta]
+    syntax-theme                 = base16
+    minus-style                  = syntax "#421f2d"
+    minus-emph-style             = syntax "#6d1823"
+    plus-style                   = syntax "#1a4c33"
+    plus-emph-style              = syntax "#216d2f"
+    line-numbers-minus-style     = "#ff0000"
+    line-numbers-plus-style      = "#38de21"
+    line-numbers-zero-style      = "#555555"
+    line-numbers-left-style      = "#555555"
+    line-numbers-right-style     = "#555555"
+    hunk-header-style            = "#ffc600" bold
+    hunk-header-decoration-style = "#18354f" box
+    file-style                   = "#bbbbbb" bold
+    file-decoration-style        = "#18354f" ul

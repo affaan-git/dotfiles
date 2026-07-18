@@ -8,7 +8,9 @@
     line-numbers-minus-style     = "#e06c75"
     line-numbers-plus-style      = "#98c379"
     line-numbers-zero-style      = "#5c6370"
-    hunk-header-style            = "#61afef" bold
+    line-numbers-left-style      = "#5c6370"
+    line-numbers-right-style     = "#5c6370"
+    hunk-header-style            = "#769ff0" bold
     hunk-header-decoration-style = "#404859" box
     file-style                   = "#abb2bf" bold
     file-decoration-style        = "#404859" ul

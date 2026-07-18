@@ -1,0 +1,21 @@
+# night-owl - nano config
+# syntax highlighting - bundled GNU nano definitions
+include "~/.local/share/nano/*.nanorc"
+
+# editing
+set tabsize 4
+set autoindent
+set linenumbers
+set constantshow
+set mouse
+set softwrap
+# no 'set tabstospaces' on purpose - it would break tab-required files like Makefiles
+
+# interface colors
+set titlecolor    bold,white,black
+set statuscolor   bold,white,black
+set errorcolor    bold,white,red
+set promptcolor   white,black
+set keycolor      blue
+set functioncolor grey
+set numbercolor   grey

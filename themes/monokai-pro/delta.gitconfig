@@ -1,0 +1,16 @@
+# monokai-pro - delta diff colors (Monokai Pro terminal)
+[delta]
+    syntax-theme                 = Monokai Extended
+    minus-style                  = syntax "#573540"
+    minus-emph-style             = syntax "#7d3f50"
+    plus-style                   = syntax "#464e3c"
+    plus-emph-style              = syntax "#5c6e49"
+    line-numbers-minus-style     = "#ff6188"
+    line-numbers-plus-style      = "#a9dc76"
+    line-numbers-zero-style      = "#727072"
+    line-numbers-left-style      = "#727072"
+    line-numbers-right-style     = "#727072"
+    hunk-header-style            = "#ab9df2" bold
+    hunk-header-decoration-style = "#5b595c" box
+    file-style                   = "#fcfcfa" bold
+    file-decoration-style        = "#5b595c" ul

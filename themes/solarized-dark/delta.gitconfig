@@ -1,0 +1,16 @@
+# solarized-dark - delta diff colors (Solarized Dark terminal)
+[delta]
+    syntax-theme                 = Solarized (dark)
+    minus-style                  = syntax "#2c2c35"
+    minus-emph-style             = syntax "#542e33"
+    plus-style                   = syntax "#1b412b"
+    plus-emph-style              = syntax "#335521"
+    line-numbers-minus-style     = "#dc322f"
+    line-numbers-plus-style      = "#859900"
+    line-numbers-zero-style      = "#586e75"
+    line-numbers-left-style      = "#586e75"
+    line-numbers-right-style     = "#586e75"
+    hunk-header-style            = "#268bd2" bold
+    hunk-header-decoration-style = "#073642" box
+    file-style                   = "#eee8d5" bold
+    file-decoration-style        = "#073642" ul

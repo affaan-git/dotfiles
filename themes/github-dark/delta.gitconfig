@@ -1,0 +1,16 @@
+# github-dark - delta diff colors (GitHub Dark terminal)
+[delta]
+    syntax-theme                 = base16
+    minus-style                  = syntax "#3e2826"
+    minus-emph-style             = syntax "#683c34"
+    plus-style                   = syntax "#1e3926"
+    plus-emph-style              = syntax "#2b5b34"
+    line-numbers-minus-style     = "#f78166"
+    line-numbers-plus-style      = "#56d364"
+    line-numbers-zero-style      = "#4d4d4d"
+    line-numbers-left-style      = "#4d4d4d"
+    line-numbers-right-style     = "#4d4d4d"
+    hunk-header-style            = "#58a6ff" bold
+    hunk-header-decoration-style = "#3b5070" box
+    file-style                   = "#ffffff" bold
+    file-decoration-style        = "#3b5070" ul

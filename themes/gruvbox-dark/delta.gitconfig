@@ -1,0 +1,16 @@
+# gruvbox-dark - delta diff colors (Gruvbox Dark terminal)
+[delta]
+    syntax-theme                 = gruvbox-dark
+    minus-style                  = syntax "#492726"
+    minus-emph-style             = syntax "#662624"
+    plus-style                   = syntax "#3e3e25"
+    plus-emph-style              = syntax "#535223"
+    line-numbers-minus-style     = "#cc241d"
+    line-numbers-plus-style      = "#98971a"
+    line-numbers-zero-style      = "#928374"
+    line-numbers-left-style      = "#928374"
+    line-numbers-right-style     = "#928374"
+    hunk-header-style            = "#d65d0e" bold
+    hunk-header-decoration-style = "#665c54" box
+    file-style                   = "#a89984" bold
+    file-decoration-style        = "#665c54" ul

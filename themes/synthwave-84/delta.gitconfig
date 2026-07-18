@@ -1,0 +1,16 @@
+# synthwave-84 - delta diff colors (SynthWave '84 terminal)
+[delta]
+    syntax-theme                 = base16
+    minus-style                  = syntax "#502147"
+    minus-emph-style             = syntax "#751f57"
+    plus-style                   = syntax "#244133"
+    plus-emph-style              = syntax "#235d31"
+    line-numbers-minus-style     = "#f6188f"
+    line-numbers-plus-style      = "#1ebb2b"
+    line-numbers-zero-style      = "#7f7094"
+    line-numbers-left-style      = "#7f7094"
+    line-numbers-right-style     = "#7f7094"
+    hunk-header-style            = "#ff7edb" bold
+    hunk-header-decoration-style = "#463465" box
+    file-style                   = "#ffffff" bold
+    file-decoration-style        = "#463465" ul

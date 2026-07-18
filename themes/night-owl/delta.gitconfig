@@ -1,0 +1,16 @@
+# night-owl - delta diff colors (Night Owl terminal)
+[delta]
+    syntax-theme                 = base16
+    minus-style                  = syntax "#31222f"
+    minus-emph-style             = syntax "#5b2d37"
+    plus-style                   = syntax "#083d35"
+    plus-emph-style              = syntax "#0e6042"
+    line-numbers-minus-style     = "#ef5350"
+    line-numbers-plus-style      = "#22da6e"
+    line-numbers-zero-style      = "#575656"
+    line-numbers-left-style      = "#575656"
+    line-numbers-right-style     = "#575656"
+    hunk-header-style            = "#82aaff" bold
+    hunk-header-decoration-style = "#1d3b53" box
+    file-style                   = "#ffffff" bold
+    file-decoration-style        = "#1d3b53" ul

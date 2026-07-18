@@ -1,0 +1,37 @@
+{
+  "logo": {
+    "type": "auto",
+    "color": {
+      "1": "#e8a67a",
+      "2": "#df8244",
+      "3": "#d65d0e",
+      "4": "#d65d0e",
+      "5": "#df8244",
+      "6": "#e8a67a"
+    }
+  },
+  "display": {
+    "color": {
+      "keys": "#d65d0e",
+      "title": "#e8a67a"
+    }
+  },
+  "modules": [
+    "title",
+    "separator",
+    "os",
+    "host",
+    "uptime",
+    "shell",
+    "display",
+    "terminal",
+    "terminalfont",
+    "memory",
+    "swap",
+    "disk",
+    "battery",
+    "locale",
+    "break",
+    "colors"
+  ]
+}

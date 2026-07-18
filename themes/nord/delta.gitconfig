@@ -1,0 +1,16 @@
+# nord - delta diff colors (Nord terminal)
+[delta]
+    syntax-theme                 = Nord
+    minus-style                  = syntax "#4b3d48"
+    minus-emph-style             = syntax "#654550"
+    plus-style                   = syntax "#45504f"
+    plus-emph-style              = syntax "#5a685d"
+    line-numbers-minus-style     = "#bf616a"
+    line-numbers-plus-style      = "#a3be8c"
+    line-numbers-zero-style      = "#596377"
+    line-numbers-left-style      = "#596377"
+    line-numbers-right-style     = "#596377"
+    hunk-header-style            = "#81a1c1" bold
+    hunk-header-decoration-style = "#434c5e" box
+    file-style                   = "#e5e9f0" bold
+    file-decoration-style        = "#434c5e" ul
